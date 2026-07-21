@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Pekerjaan | Muhammad Fauzan</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body {
+            background-color: #0b0f19;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            background: #1e293b;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid #334155;
+            text-align: center;
+            position: relative;
+        }
+        .container::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 40px;
+            border-top: 3px solid #2ecc71; border-left: 3px solid #2ecc71;
+        }
+        h1 { font-size: 2rem; margin-bottom: 8px; }
+        p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 30px; }
+        .btn-list { display: flex; flex-direction: column; gap: 15px; }
+        .btn-job {
+            display: block; padding: 18px; background: #111827; color: #ffffff;
+            text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1rem;
+            letter-spacing: 1px; border: 1px solid #334155; transition: all 0.3s ease; text-align: center;
+        }
+        .btn-job.windows:hover { border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); color: #38bdf8; transform: translateY(-2px); }
+        .btn-job.network:hover { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); color: #a855f7; transform: translateY(-2px); }
+        .btn-job.coding:hover { border-color: #2ecc71; box-shadow: 0 0 15px rgba(46, 204, 113, 0.4); color: #2ecc71; transform: translateY(-2px); }
+        .btn-job.pkl:hover { border-color: #f59e0b; box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); color: #f59e0b; transform: translateY(-2px); }
+        .btn-back { display: inline-block; margin-top: 30px; color: #64748b; text-decoration: none; font-size: 0.95rem; font-weight: 600; }
+        .btn-back:hover { color: #38bdf8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>List Pekerjaan Saya</h1>
+        <p>Pilih kategori di bawah untuk melihat dokumentasi teknis:</p>
+        <div class="btn-list">
+            <a href="doc-windows.html" class="btn-job windows">INSTALASI WINDOWS</a>
+            <a href="doc-networking.html" class="btn-job network">NETWORKING</a>
+            <a href="doc-coding.html" class="btn-job coding">CODDING MOMENT</a>
+            <a href="doc-pkl.html" class="btn-job pkl">PKL STUDY (KANIM)</a>
+        </div>
+        <a href="index.html" class="btn-back">&larr; Kembali ke Beranda Utama</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Muhammad Fauzan</title>
+    <style>
+        /* CSS UTAMA & TEMA DARK TECH */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .portfolio-container {
+            background: #1e293b;
+            max-width: 650px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 165, 233, 0.1);
+            border: 1px solid #334155;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border-top: 3px solid #38bdf8;
+            border-left: 3px solid #38bdf8;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.4rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.4);
+            border: 3px solid #0f172a;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-container:hover .avatar {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.6);
+        }
+
+        .profile-header h1 {
+            font-size: 2.2rem;
+            color: #f8fafc;
+            margin-bottom: 5px;
+        }
+
+        .profile-header .title-tag {
+            font-size: 0.95rem;
+            color: #38bdf8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #2ecc71;
+            animation: berkedip 1.5s infinite;
+        }
+
+        @keyframes berkedip {
+            0% { transform: scale(0.9); opacity: 0.4; }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 15px #2ecc71; }
+            100% { transform: scale(0.9); opacity: 0.4; }
+        }
+
+        .section-box {
+            background: #111827;
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 22px;
+            border: 1px solid #1f2937;
+            transition: all 0.3s ease;
+        }
+
+        .section-box:hover {
+            transform: translateY(-3px);
+            border-color: #4b5563;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 6px;
+            display: inline-block;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media(min-width: 480px) { .grid-info { grid-template-columns: 1fr 1fr; } }
+
+        .info-item {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            padding: 6px 10px;
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 6px;
+            border-left: 3px solid #475569;
+        }
+
+        .info-item strong { color: #e2e8f0; }
+
+        .text-desc {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #334155;
+            transition: all 0.2s ease;
+        }
+
+        .badge:hover {
+            background: #0f172a;
+            color: #38bdf8;
+            border-color: #38bdf8;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .footer-action {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .contact-info a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-explore {
+            display: inline-block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            border: 1px solid #3b82f6;
+        }
+
+        .btn-explore:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6), 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        <div class="profile-header">
+            <div class="avatar">MF</div>
+            <h1>Muhammad Fauzan</h1>
+            <div class="title-tag"><span class="pulse-dot"></span> Aspiring Network & OS Specialist</div>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">Biodata Diri</div>
+            <div class="grid-info">
+                <div class="info-item"><strong>Institusi:</strong> SMK Setia Budi Balikpapan</div>
+                <div class="info-item"><strong>Domisili:</strong> Balikpapan, Kaltim</div>
+                <div class="info-item"><strong>TTL:</strong> Samarinda, 20 Mei 2009</div>
+                <div class="info-item"><strong>Hobi:</strong> Gaming & Troubleshooting</div>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">Fokus & Tujuan Karier</div>
+            <p class="text-desc">
+                Saya adalah seorang pelajar yang memiliki ketertarikan mendalam pada infrastruktur komputer. Visi terbesar saya adalah menjadi seorang ahli profesional di bidang jaringan (Network Specialist) serta sistem operasi yang menguasai integrasi mendalam antara perangkat lunak (software) dan perangkat keras (hardware).
+            </p>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">Eksplorasi Teknologi</div>
+            <div class="badge-container">
+                <span class="badge">Instalasi OS Windows</span>
+                <span class="badge">Teknisi Jaringan LAN</span>
+                <span class="badge">Konfigurasi Mikrotik</span>
+                <span class="badge">Perakitan Komputer</span>
+                <span class="badge">Troubleshooting</span>
+                <span class="badge">Python Coding</span>
+                <span class="badge">Subnetting</span>
+            </div>
+        </div>
+
+        <div class="footer-action">
+            <div class="contact-info">
+                Hubungi saya melalui Email: <a href="mailto:Muhammadfauzann095@gmail.com">Muhammadfauzann095@gmail.com</a>
+            </div>
+            <!-- TOMBOL DI INDEX LANGSUNG MENGARAH KE LIST PEKERJAAN -->
+            <a href="pilihan-kerjaan.html" class="btn-explore">LIHAT LIST PEKERJAAN SAYA</a>
+        </div>
+    </div>
+
+</body>
+</html>

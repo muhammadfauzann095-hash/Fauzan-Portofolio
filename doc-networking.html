@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc | Networking</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body {
+            background-color: #0b0f19;
+            background-image: 
+                linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #e2e8f0; line-height: 1.6; padding: 40px 20px; display: flex; justify-content: center;
+        }
+        .wrapper { max-width: 700px; width: 100%; background: #1e293b; padding: 40px; border-radius: 16px; border: 1px solid #334155; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+        .btn-back { display: inline-block; color: #a855f7; text-decoration: none; font-weight: 600; margin-bottom: 25px; }
+        h1 { font-size: 1.8rem; color: #f8fafc; margin-bottom: 15px; border-bottom: 2px solid #a855f7; padding-bottom: 10px; }
+        .desc-text { color: #94a3b8; margin-bottom: 30px; font-size: 1rem; }
+        .gallery-vertical { display: flex; flex-direction: column; gap: 30px; }
+        .image-box { background: #111827; padding: 15px; border-radius: 12px; border: 1px solid #334155; transition: transform 0.3s ease; }
+        .image-box:hover { transform: translateY(-3px); border-color: #a855f7; }
+        .doc-image { width: 100%; height: 380px; object-fit: cover; object-position: center; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); cursor: zoom-in; }
+        .img-caption { font-size: 0.95rem; color: #cbd5e1; margin-top: 12px; display: block; border-left: 3px solid #a855f7; padding-left: 10px; }
+        
+        /* LIGHTBOX CLASS */
+        .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 15, 25, 0.95); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .lightbox-overlay.active { opacity: 1; pointer-events: auto; }
+        .lightbox-img { max-width: 90%; max-height: 85%; border-radius: 8px; box-shadow: 0 0 30px rgba(168, 85, 247, 0.3); transform: scale(0.9); transition: transform 0.3s ease; }
+        .lightbox-overlay.active .lightbox-img { transform: scale(1); }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: #94a3b8; cursor: pointer; font-weight: bold; transition: color 0.2s; }
+        .lightbox-close:hover { color: #f8fafc; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="pilihan-kerjaan.html" class="btn-back">&larr; Kembali ke List Pekerjaan</a>
+        <h1>Dokumentasi: Networking & Jaringan</h1>
+        <p class="desc-text">Catatan teknis mengenai konfigurasi perangkat jaringan, pemasangan kabel LAN, manajemen bandwidth dengan Mikrotik, serta perhitungan teknik subnetting IP Address.</p>
+        
+        <div class="gallery-vertical">
+            <div class="image-box">
+                <img src="foto-network1.jpg" alt="Dokumentasi Jaringan 1" class="doc-image">
+                <span class="img-caption"><strong>Foto 1:</strong> Hasil crimping kabel UTP RJ45 dan pengujian menggunakan LAN Tester.</span>
+            </div>
+            <div class="image-box">
+                <img src="foto-network2.jpg" alt="Dokumentasi Jaringan 2" class="doc-image">
+                <span class="img-caption"><strong>Foto 2:</strong> Konfigurasi ip address, DHCP server, dan keamanan jaringan di Winbox Mikrotik.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" id="closeBtn">&times;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Full Screen">
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.doc-image');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.getElementById('closeBtn');
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+        closeBtn.addEventListener('click', () => { lightbox.classList.remove('active'); });
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg && e.target !== closeBtn) { lightbox.classList.remove('active'); }
+        });
+    </script>
+</body>
+</html>

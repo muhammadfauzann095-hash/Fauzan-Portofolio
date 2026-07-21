@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc | Instalasi Windows</title>
+    <style>
+        /* ==========================================
+           CSS UTAMA & LAYOUT TEMA GELAP
+           ========================================== */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+        }
+        
+        body {
+            background-color: #0b0f19;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #e2e8f0; 
+            line-height: 1.6; 
+            padding: 40px 20px; 
+            display: flex; 
+            justify-content: center;
+        }
+        
+        .wrapper { 
+            max-width: 700px; 
+            width: 100%; 
+            background: #1e293b; 
+            padding: 40px; 
+            border-radius: 16px; 
+            border: 1px solid #334155; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+        }
+        
+        .btn-back { 
+            display: inline-block; 
+            color: #38bdf8; 
+            text-decoration: none; 
+            font-weight: 600; 
+            margin-bottom: 25px; 
+        }
+        
+        h1 { 
+            font-size: 1.8rem; 
+            color: #f8fafc; 
+            margin-bottom: 15px; 
+            border-bottom: 2px solid #38bdf8; 
+            padding-bottom: 10px; 
+        }
+        
+        .desc-text { 
+            color: #94a3b8; 
+            margin-bottom: 30px; 
+            font-size: 1rem; 
+        }
+        
+        /* STYLE DAFTAR FOTO VERTIKAL (FLOW KE BAWAH) */
+        .gallery-vertical { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 30px; 
+        }
+        
+        .image-box { 
+            background: #111827; 
+            padding: 15px; 
+            border-radius: 12px; 
+            border: 1px solid #334155; 
+            transition: transform 0.3s ease; 
+        }
+        
+        .image-box:hover { 
+            transform: translateY(-3px); 
+            border-color: #38bdf8; 
+        }
+        
+        /* Ukuran Foto Seragam & Kursor Kaca Pembesar */
+        .doc-image { 
+            width: 100%; 
+            height: 380px; 
+            object-fit: cover; 
+            object-position: center; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+            cursor: zoom-in;
+        }
+        
+        .img-caption { 
+            font-size: 0.95rem; 
+            color: #cbd5e1; 
+            margin-top: 12px; 
+            display: block; 
+            border-left: 3px solid #38bdf8; 
+            padding-left: 10px; 
+        }
+
+        /* ==========================================
+           CSS LIGHTBOX (EFEK FULL SCREEN FOTO)
+           ========================================== */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(11, 15, 25, 0.95);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 9999;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-overlay.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            font-size: 2.5rem; color: #94a3b8;
+            cursor: pointer; font-weight: bold;
+            transition: color 0.2s;
+        }
+        
+        .lightbox-close:hover { 
+            color: #f8fafc; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Tombol kembali ke menu daftar proyek -->
+        <a href="pilihan-kerjaan.html" class="btn-back">&larr; Kembali ke List Pekerjaan</a>
+        
+        <h1>Dokumentasi: Instalasi Windows</h1>
+        
+        <!-- Bagian Edit Deskripsi Utama Halaman -->
+        <p class="desc-text">
+            Kumpulan log kerja dan dokumentasi proses instalasi sistem operasi Windows 10/11 pada perangkat komputer kerja maupun komputer laboratorium sekolah.
+        </p>
+        
+        <!-- AREA DAFTAR FOTO SCROLL KE BAWAH -->
+        <div class="gallery-vertical">
+            
+            <!-- FOTO BLOK 1 -->
+            <div class="image-box">
+                <!-- PENTING: Ganti "foto-windows1.jpg" sesuai nama file fotomu -->
+                <img src="windows1.jpg" alt="Dokumentasi Windows 1" class="doc-image">
+                <!-- Bagian Edit Deskripsi Foto 1 -->
+                <span class="img-caption">
+                    <strong>Foto 1:</strong> Proses booting awal ke sistem Installer Windows menggunakan USB Flashdisk Bootable.
+                </span>
+            </div>
+            
+            <!-- FOTO BLOK 2 -->
+            <div class="image-box">
+                <!-- PENTING: Ganti "foto-windows2.jpg" sesuai nama file fotomu -->
+                <img src="windows2.jpg" alt="Dokumentasi Windows 2" class="doc-image">
+                <!-- Bagian Edit Deskripsi Foto 2 -->
+                <span class="img-caption">
+                    <strong>Foto 2:</strong> Proses saat instalasi telah selesai dan komputer sebentar lagi akan masuk ke tampilan desktop Windows 10 yang siap digunakan.
+                </span>
+            </div>
+
+            <!-- FOTO BLOK 3 -->
+            <div class="image-box">
+                <!-- PENTING: Ganti "foto-windows3.jpg" sesuai nama file fotomu -->
+                <img src="windows3.jpg" alt="Dokumentasi Windows 3" class="doc-image">
+                <!-- Bagian Edit Deskripsi Foto 3 -->
+                <span class="img-caption">
+                    <strong>Foto 3:</strong> Tampilan awal home screen Windows 10 setelah proses instalasi selesai dan restart pertama.
+                </span>
+            </div>
+            
+            <!-- 
+               TIPS: Jika di kemudian hari kamu punya Foto ke-4, ke-5, dst, 
+               kamu tinggal COPY-PASTE blok boks di bawah ini tepat sebelum kode penutup </div> gallery-vertical:
+               
+               <div class="image-box">
+                   <img src="nama-file-baru.jpg" class="doc-image">
+                   <span class="img-caption"><strong>Foto 4:</strong> Deskripsi foto barumu.</span>
+               </div>
+            -->
+
+        </div>
+    </div>
+
+    <!-- WADAH LAYAR PENUH LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" id="closeBtn">&times;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Full Screen View">
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT LOGIKA KLIK FOTO -->
+    <script>
+        const images = document.querySelectorAll('.doc-image');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.getElementById('closeBtn');
+
+        // Fungsi membuka foto full screen saat foto kecil di-klik
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Fungsi menutup layar penuh saat tombol X di-klik
+        closeBtn.addEventListener('click', () => { 
+            lightbox.classList.remove('active'); 
+        });
+        
+        // Fungsi menutup layar penuh saat area hitam di luar foto di-klik
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg && e.target !== closeBtn) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
